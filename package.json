@@ -1,7 +1,7 @@
 {
-  "name": "cursoblognodejs",
+  "name": "serveredfis",
   "version": "1.0.0",
-  "description": "Aplicação para o curso de Nodejs no youtube",
+  "description": "Aplicação para o aplicativo de educação física",
   "main": "app.js",
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -20,9 +20,7 @@
     "start": "node app.js"
   },
   "keywords": [
-    "nodejs",
-    "curso",
-    "aprendendo"
+    "nodejs"
   ],
   "author": "Glauber Carvalho",
   "license": "ISC"

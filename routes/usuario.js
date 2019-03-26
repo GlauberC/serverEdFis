@@ -5,6 +5,7 @@ require('../models/Usuario')
 const Usuario = mongoose.model('usuarios')
 const bcrypt = require('bcryptjs')
 const passport = require('passport')
+const {eAdmin} = require('../helpers/eAdmin')
 
 router.get('/registro', (req, res) => {
     res.render('usuarios/registro')
@@ -129,6 +130,13 @@ router.post('/loginusuario', (req, res, next) => {
         failureFlash: true
 
     })(req, res, next)
+})
+
+router.get('/avaliacao/:id', (req,res) =>{
+    res.render('usuarios/avaliacao', {usuarioID: req.params.id})
+})
+router.post('/test', (req, res)=> {
+    
 })
 
 module.exports = router

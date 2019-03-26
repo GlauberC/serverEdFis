@@ -1,0 +1,9 @@
+<h2>Avaliação:</h2>
+<input hidden name='id' value='{{usuarioID}}'>
+<form method="POST" action="/usuarios/test">
+    {{>_perguntashistoria}}
+    {{>_perguntassintomas}}
+    {{>_perguntassaude}}
+    {{>_perguntasriscos}}
+    <button class="btn btn-success btn-block mt-4" type="submit">Submeter avaliação</button>
+</form>

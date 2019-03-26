@@ -1,3 +1,4 @@
+
 {{#unless user}}
 <div class="jumbotron">
   <h1 class="display-4">Server de EdFis</h1>
@@ -15,7 +16,7 @@
   </div>
   <div class="card-body">
     <p>Gostaria de preencher agora? Clique no botão abaixo</p>
-    <a class="btn btn-primary btn-lg" href="/usuarios/avaliacao" role="button">Começar avaliação</a>
+    <a class="btn btn-primary btn-lg" href="/usuarios/avaliacao/{{user._id}}" role="button">Começar avaliação</a>
   </div>
 </div>
 {{/unless}}

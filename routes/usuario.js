@@ -18,12 +18,6 @@ router.post('/registrar', (req, res) => {
             erros.push({texto: "Nome inválido"})
     }
 
-    if(!req.body.nome ||
-        typeof req.body.nome == undefined ||
-        req.body.nome == null ){
-            erros.push({texto: "Nome inválido"})
-    }
-
     if(!req.body.email ||
         typeof req.body.email == undefined ||
         req.body.email == null ){
@@ -35,6 +29,26 @@ router.post('/registrar', (req, res) => {
         req.body.senha == null ){
             erros.push({texto: "Senha inválida"})
     }
+    if(!req.body.bday ||
+        typeof req.body.bday == undefined ||
+        req.body.bday == null ){
+            erros.push({texto: "Data de nascimento inválida"})
+    }
+
+    if(!req.body.sexo ||
+        typeof req.body.sexo == undefined ||
+        req.body.sexo == null ){
+            erros.push({texto: "Sexo inválido"})
+    }
+
+    if(!req.body.cpf ||
+        typeof req.body.cpf == undefined ||
+        req.body.cpf == null ){
+            erros.push({texto: "CPF inválido"})
+    }
+    if(!/^\d{11}$/.test(req.body.cpf) && !/^\d{3}\.\d{3}\.\d{3}-\d{2}$/.test(req.body.cpf)){
+        erros.push({texto: "CPF inválido"})
+    }
 
     if(req.body.senha.length < 6){
         
@@ -44,6 +58,12 @@ router.post('/registrar', (req, res) => {
     if(req.body.senha !== req.body.senha2){
         erros.push({texto: "As senhas são diferentes, tente novamente!"})
     }
+    var nasci = new Date(req.body.bday)
+    var hoje = new Date()
+    if(nasci.getFullYear() < 1900 || nasci >= hoje){
+        erros.push({texto: "Data Inválida"})
+    }
+
 
     if(erros.length > 0){
         res.render('usuarios/registro', {erros: erros})
@@ -58,7 +78,10 @@ router.post('/registrar', (req, res) => {
                     const novoUsuario = new Usuario({
                         nome: req.body.nome,
                         email: req.body.email,
-                        senha: req.body.senha
+                        senha: req.body.senha,
+                        bday: nasci,
+                        sexo: req.body.sexo,
+                        cpf: req.body.cpf.replace(/[\.\-]/ig,'')
                     })
                     // Encriptar senha
                     bcrypt.genSalt(10, (erro, salt) => {

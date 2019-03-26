@@ -8,6 +8,7 @@ const Usuario = new Schema({
     },
     email:{
         type: String,
+        lowercase: true,
         required: true
     },
     eAdmin:{
@@ -17,6 +18,23 @@ const Usuario = new Schema({
     senha: {
         type: String,
         required: true
+    },
+    bday:{
+        type: Date,
+        required: true
+    },
+    cpf:{
+        type: String,
+        required: true
+    },
+    sexo:{
+        type: String,
+        required: true
+    },
+    fezAvaliacao:{
+        type: Boolean,
+        required: true,
+        default: false
     }
 })
 

@@ -1,3 +1,4 @@
+{{#unless user}}
 <div class="jumbotron">
   <h1 class="display-4">Server de EdFis</h1>
   <p class="lead">Server base para o aplicativo de educação física</p>
@@ -7,3 +8,14 @@
     <a class="btn btn-primary btn-lg" href="/usuarios/registro" role="button">Crie uma conta</a>
   </p>
 </div>
+{{else}}
+<div class="card">
+  <div class="card-header bg-warning text-dark">
+    <h2>Você ainda não preencheu a avaliação!</h2>
+  </div>
+  <div class="card-body">
+    <p>Gostaria de preencher agora? Clique no botão abaixo</p>
+    <a class="btn btn-primary btn-lg" href="/usuarios/avaliacao" role="button">Começar avaliação</a>
+  </div>
+</div>
+{{/unless}}

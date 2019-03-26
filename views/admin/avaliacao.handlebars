@@ -1,0 +1,173 @@
+<div class="card">
+    <div class="card-header">
+        <h2>{{nome}}</h2>
+    </div>
+    <div class="card-body">
+        <table class = "table">
+            <thead>
+                <th>Pergunta</th>
+                <th>Resposta</th>
+            </thead>
+            <tbody>
+
+
+                <tr>
+                    <td>ataque de coração?</td>
+                    <td>{{#if avaliacao.ataqueCoracao}}Sim{{else}}Não{{/if}}</td>
+                </tr>
+
+                <tr>
+                    <td>cirurgia cardíaca?</td>
+                    <td>{{#if avaliacao.cirurgiaCardiaca}}Sim{{else}}Não{{/if}}</td>
+                </tr>
+
+                <tr>
+                    <td>cateterismo cardíaco?</td>
+                    <td>{{#if avaliacao.cateterismo}}Sim{{else}}Não{{/if}}</td>
+                </tr>
+
+                <tr>
+                    <td>angioplastia coronariana?</td>
+                    <td>{{#if avaliacao.angioplastia}}Sim{{else}}Não{{/if}}</td>
+                </tr>
+
+                <tr>
+                    <td>marca-passo / desfibrilador cardíaco implantável / distúrbio do ritmo?</td>
+                    <td>{{#if avaliacao.marcaPasso}}Sim{{else}}Não{{/if}}</td>
+                </tr>
+
+                <tr>
+                    <td>doenças das valvas cardíacas?</td>
+                    <td>{{#if avaliacao.doencaValvas}}Sim{{else}}Não{{/if}}</td>
+                </tr>
+
+                <tr>
+                    <td>insuficiência cardíaca?</td>
+                    <td>{{#if avaliacao.insuficienciaCardiaca}}Sim{{else}}Não{{/if}}</td>
+                </tr>
+
+                <tr>
+                    <td>transplante do coração?</td>
+                    <td>{{#if avaliacao.transplanteCoracao}}Sim{{else}}Não{{/if}}</td>
+                </tr>
+
+                <tr>
+                    <td>doença cardíaca congênita?</td>
+                    <td>{{#if avaliacao.doencaCardiaca}}Sim{{else}}Não{{/if}}</td>
+                </tr>
+
+
+
+                <tr>
+                    <td>Você experimenta desconforto torácico com o esforço?</td>
+                    <td>{{#if avaliacao.desconfortoToraxico}}Sim{{else}}Não{{/if}}</td>
+                </tr>
+
+                <tr>
+                    <td>Você experimenta desconforto respiratório sem motivo?</td>
+                    <td>{{#if avaliacao.desconfortoRespiratorio}}Sim{{else}}Não{{/if}}</td>
+                </tr>
+
+                <tr>
+                    <td>Você experimenta tonteira, desmaio ou perdas temporárias da consciência?</td>
+                    <td>{{#if avaliacao.desmaios}}Sim{{else}}Não{{/if}}</td>
+                </tr>
+
+                <tr>
+                    <td>Você toma medicações para o coração?</td>
+                    <td>{{#if avaliacao.medicacaoCoracao}}Sim{{else}}Não{{/if}}</td>
+                </tr>
+
+
+
+                <tr>
+                    <td>Você sofre de diabetes?</td>
+                    <td>{{#if avaliacao.diabetes}}Sim{{else}}Não{{/if}}</td>
+                </tr>
+
+                <tr>
+                    <td>Você sofre de asma ou de outra doença pulmonar?</td>
+                    <td>{{#if avaliacao.asma}}Sim{{else}}Não{{/if}}</td>
+                </tr>
+
+                <tr>
+                    <td> Você apresenta sensações de queimação ou de cãibras em suas pernas ao percorrer pequenas distâncias?</td>
+                    <td>{{#if avaliacao.queimacaoPerna}}Sim{{else}}Não{{/if}}</td>
+                </tr>
+
+                <tr>
+                    <td> Você tem problemas musculoesqueléticos que limitam sua atividade física?</td>
+                    <td>{{#if avaliacao.musculoEsqueleticos}}Sim{{else}}Não{{/if}}</td>
+                </tr>
+
+                <tr>
+                    <td>Você torna medicação(ões) prescrita(s)?</td>
+                    <td>{{#if avaliacao.medicacaoPrescrita}}Sim{{else}}Não{{/if}}</td>
+                </tr>
+
+                <tr>
+                    <td>Você está grávida?</td>
+                    <td>{{#if avaliacao.gravida}}Sim{{else}}Não{{/if}}</td>
+                </tr>
+
+
+
+                <tr>
+                    <td>Você é um homem com mais de 45 anos de idade?</td>
+                    <td>{{#if avaliacao.homem45}}Sim{{else}}Não{{/if}}</td>
+                </tr>
+
+                <tr>
+                    <td>Você é uma mulher com mais de 55 anos de idade, foi submetida a uma histerectomia ou está no período pós-menopausa?</td>
+                    <td>{{#if avaliacao.mulher55}}Sim{{else}}Não{{/if}}</td>
+                </tr>
+
+                <tr>
+                    <td>Você fuma ou deixou de fumar nos últimos 6 meses?</td>
+                    <td>{{#if avaliacao.fuma}}Sim{{else}}Não{{/if}}</td>
+                </tr>
+
+                <tr>
+                    <td>Sua pressão arterial é >140/90 mm Hg?</td>
+                    <td>{{#if avaliacao.pressaoArterialMaior}}Sim{{else}}Não{{/if}}</td>
+                </tr>
+
+                <tr>
+                    <td>Você não sabe qual é sua pressão arterial?</td>
+                    <td>{{#if avaliacao.naoSabePressaoArterial}}Sim{{else}}Não{{/if}}</td>
+                </tr>
+
+                <tr>
+                    <td>Você toma alguma medicação para pressão arterial?</td>
+                    <td>{{#if avaliacao.medicacaoPressaoArterial}}Sim{{else}}Não{{/if}}</td>
+                </tr>
+
+                <tr>
+                    <td>Seu nível sanguíneo de colesterol é >200 mg/dL?</td>
+                    <td>{{#if avaliacao.colesterolMaior}}Sim{{else}}Não{{/if}}</td>
+                </tr>
+
+                <tr>
+                    <td>Você não sabe qual é seu nível de colesterol?</td>
+                    <td>{{#if avaliacao.sabeColesterol}}Sim{{else}}Não{{/if}}</td>
+                </tr>
+
+                <tr>
+                    <td>Você tem um parente consanguíneo próximo que teve um ataque cardíaco ou foi submetido a uma cirurgia do coração antes dos 55 anos de idade (pai ou irmão) ou dos 65 anos de idade (mãe ou irmã)?</td>
+                    <td>{{#if avaliacao.parenteProximo}}Sim{{else}}Não{{/if}}</td>
+                </tr>
+
+                <tr>
+                    <td>Você é fisicamente inativo (i.e, você realiza menos de 30 minutos de atividade física de intensidade moderada pelo menos 3 dias por semana)?</td>
+                    <td>{{#if avaliacao.fisicamenteInativo}}Sim{{else}}Não{{/if}}</td>
+                </tr>
+
+                <tr>
+                    <td> Você tem <9 kg de sobrepeso?</td>
+                    <td>{{#if avaliacao.sobrepeso}}Sim{{else}}Não{{/if}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<a href='/admin/avaliacoes'><button class="btn btn-primary mt-4">Voltar para a página de avaliações</button></a>

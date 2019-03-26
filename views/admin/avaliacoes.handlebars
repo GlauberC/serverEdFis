@@ -1,0 +1,13 @@
+{{#each usuarios}}
+    <div class="card">
+        <div class="card-header">
+            {{nome}}
+        </div>
+        <div class="card-body">
+            <p>Email: {{email}}</p>
+            <p>Aniversário: {{bday}}</p>
+            <p>Sexo: {{sexo}}</p>
+            <a href="/admin/avaliacao/{{_id}}/{{nome}}"><button class="btn btn-success">Ver Avaliação desse usuário</button></a>
+        </div>
+    </div>
+{{/each}}

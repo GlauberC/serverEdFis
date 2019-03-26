@@ -3,6 +3,8 @@ const router = express.Router()
 const mongoose = require('mongoose')
 require('../models/Usuario')
 const Usuario = mongoose.model('usuarios')
+require('../models/Avaliacao')
+const Avaliacao = mongoose.model('avaliacoes')
 const bcrypt = require('bcryptjs')
 const passport = require('passport')
 const {eAdmin} = require('../helpers/eAdmin')
@@ -135,8 +137,71 @@ router.post('/loginusuario', (req, res, next) => {
 router.get('/avaliacao/:id', (req,res) =>{
     res.render('usuarios/avaliacao', {usuarioID: req.params.id})
 })
-router.post('/test', (req, res)=> {
-    
+router.post('/avaliacao', (req, res)=> {
+    Usuario.findOne({_id: req.body.userID})
+        .then(user => {
+            const novaAvaliacao = {
+                usuario: user,
+                ataqueCoracao: req.body.ataqueCoracao ,
+                cirurgiaCardiaca:req.body.cirurgiaCardiaca ,
+                cateterismo:req.body.cateterismo ,
+                angioplastia:req.body.angioplastia ,
+                marcaPasso:req.body.marcaPasso ,
+                doencaValvas:req.body.doencaValvas ,
+                insuficienciaCardiaca:req.body.insuficienciaCardiaca ,
+                transplanteCoracao:req.body.transplanteCoracao ,
+                doencaCardiaca:req.body.doencaCardiaca ,
+                desconfortoToraxico:req.body.desconfortoToraxico ,
+                desconfortoRespiratorio:req.body.desconfortoRespiratorio ,
+                desmaios:req.body.desmaios ,
+                medicacaoCoracao:req.body.medicacaoCoracao ,
+                diabetes:req.body.diabetes ,
+                asma:req.body.asma ,
+                queimacaoPerna:req.body.queimacaoPerna ,
+                musculoEsqueleticos:req.body.musculoEsqueleticos ,
+                medicacaoPrescrita:req.body.medicacaoPrescrita ,
+                gravida:req.body.gravida ,
+                homem45:req.body.homem45 ,
+                mulher55:req.body.mulher55 ,
+                fuma:req.body.fuma ,
+                pressaoArterialMaior:req.body.pressaoArterialMaior ,
+                naoSabePressaoArterial:req.body.naoSabePressaoArterial ,
+                medicacaoPressaoArterial:req.body.medicacaoPressaoArterial ,
+                colesterolMaior:req.body.colesterolMaior ,
+                sabeColesterol:req.body.sabeColesterol ,
+                parenteProximo:req.body.parenteProximo ,
+                fisicamenteInativo:req.body.fisicamenteInativo ,
+                sobrepeso:req.body.sobrepeso 
+            }
+            new Avaliacao(novaAvaliacao).save()
+                .then((user) => {
+                    Usuario.findOne({_id: req.body.userID})
+                    .then( usuario =>{
+                        usuario.fezAvaliacao = true
+                        usuario.save()
+                            .then(()=>{
+                                req.flash('success_msg', 'Avaliação realizada com sucesso!')
+                                res.redirect('/') 
+                            })
+                            .catch(err => {
+                                req.flash('error_msg', 'Houve um erro ao alterar a avaliação do usuario')
+                                res.redirect('/')  
+                            })
+                    })
+                    .catch(err => {
+                        req.flash('error_msg', 'Houve um erro interno, usuário não encontrado')
+                        res.redirect('/')
+                    })
+                })
+                .catch(err => {
+                    req.flash('error_msg', 'Houve um erro ao criar uma nova avaliacao')
+                    res.redirect('/')
+                })
+        })
+        .catch( err => {
+            req.flash('error_msg', 'Houve um erro interno, usuário não encontrado')
+            res.redirect('/')
+        })
 })
 
 module.exports = router

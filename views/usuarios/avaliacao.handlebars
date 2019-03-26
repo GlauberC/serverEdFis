@@ -1,6 +1,6 @@
 <h2>Avaliação:</h2>
-<input hidden name='id' value='{{usuarioID}}'>
-<form method="POST" action="/usuarios/test">
+<form method="POST" action="/usuarios/avaliacao">
+    <input hidden type = 'text' name='userID' value='{{usuarioID}}'>
     {{>_perguntashistoria}}
     {{>_perguntassintomas}}
     {{>_perguntassaude}}

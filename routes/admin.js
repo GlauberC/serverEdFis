@@ -4,6 +4,8 @@ const mongoose = require('mongoose')
 const {eAdmin} = require('../helpers/eAdmin')
 require('../models/Usuario')
 const Usuario = mongoose.model('usuarios')
+require('../models/Avaliacao')
+const Avaliacao = mongoose.model('avaliacoes')
 
 
 
@@ -57,6 +59,24 @@ const Usuario = mongoose.model('usuarios')
             .catch(err => {
                 req.flash('error_msg','Houve um erro ao deletar o usuário')
                 res.redirect('/admin/usuarios')
+            })
+    })
+
+    router.get('/avaliacoes', eAdmin, (req, res)=>{
+        Usuario.find({fezAvaliacao: true})
+            .then(usuarios => res.render('admin/avaliacoes', {usuarios: usuarios}))
+            .catch( err => {
+                req.flash('error_msg', 'Houve um erro ao acessar a lista de avaliações')
+                res.redirect('/')
+            })
+    })
+
+    router.get('/avaliacao/:id/:nome', eAdmin, (req, res)=>{
+        Avaliacao.findOne({usuario: req.params.id})
+            .then(avaliacao => res.render('admin/avaliacao', {avaliacao: avaliacao, nome: req.params.nome}))
+            .catch( err => {
+                req.flash('error_msg', 'Houve um erro ao acessar a avaliação do usuário')
+                res.redirect('/')
             })
     })
 
